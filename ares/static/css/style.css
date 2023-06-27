@@ -1,5 +1,6 @@
 :root {
-  --cream: #fef8f2;
+  --white: #fef8f2;
+  --black: #171717;
 }
 
 /* latin-ext */
@@ -22,8 +23,10 @@
 html,
 body {
   margin: 0;
-  background-color: var(--cream);
+  background-color: var(--white);
 }
+
+/* Render */
 
 .render {
   position: absolute;
@@ -31,9 +34,12 @@ body {
   left: 0;
 }
 
+/* Loading Screen */
+
 .render__loading {
-  position: absolute;
-  background-color: var(--cream);
+  position: fixed;
+  background-color: var(--white);
+  color: var(--black);
   top: 0;
   left: 0;
   width: 100vw;
@@ -44,4 +50,97 @@ body {
   align-items: center;
   justify-content: center;
   z-index: 999;
+}
+
+.render__loading__ellipsis {
+  fill: var(--black);
+}
+
+.render__loading__ellipsis1,
+.render__loading__ellipsis2,
+.render__loading__ellipsis3 {
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  opacity: 0;
+}
+
+@keyframes renderLoadingEllipsis1 {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.render__loading__ellipsis1 {
+  animation-name: renderLoadingEllipsis1;
+  fill: var(--black);
+}
+
+@keyframes renderLoadingEllipsis2 {
+  10% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  70% {
+    transform: translateX(0);
+  }
+  75% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+    transform: translateX(-.05rem);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-.05rem);
+  }
+}
+
+.render__loading__ellipsis2 {
+  animation-name: renderLoadingEllipsis2;
+  fill: var(--black);
+}
+
+@keyframes renderLoadingEllipsis3 {
+  20% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    transform: translateX(0);
+  }
+  75% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+    transform: translateX(-.1rem);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-.1rem);
+  }
+}
+
+.render__loading__ellipsis3 {
+  animation-name: renderLoadingEllipsis3;
+  fill: var(--black);
 }

@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const renderer = new THREE.WebGLRenderer()
   renderer.setSize( window.innerWidth, window.innerHeight )
 
-  const CANVAS_EL = document.querySelector( '.canvas' )
-  CANVAS_EL.appendChild( renderer.domElement )
+  const RENDER = document.querySelector( '.render' )
+  RENDER.appendChild( renderer.domElement )
 
 
   const geometry = new THREE.BoxGeometry( 1, 1, 1 )
@@ -29,4 +29,11 @@ document.addEventListener('DOMContentLoaded', () => {
     renderer.render( scene, camera )
   }
   //animate()
+
+
+  // loading screen
+  const LOADING_ELLIPSIS_1 = document.querySelector( '.render__loading__ellipsis1' )
+  const LOADING_ELLIPSIS_2 = document.querySelector( '.render__loading__ellipsis2' )
+  const LOADING_ELLIPSIS_3 = document.querySelector( '.render__loading__ellipsis3' )
+
 })
