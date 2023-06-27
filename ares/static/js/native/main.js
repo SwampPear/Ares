@@ -28,12 +28,21 @@ document.addEventListener('DOMContentLoaded', () => {
     cube.rotation.y += 0.01
     renderer.render( scene, camera )
   }
-  //animate()
+  animate()
 
 
   // loading screen
+  const LOADING_CONTAINER = document.querySelector( '.render__loading__container' )
   const LOADING_ELLIPSIS_1 = document.querySelector( '.render__loading__ellipsis1' )
   const LOADING_ELLIPSIS_2 = document.querySelector( '.render__loading__ellipsis2' )
   const LOADING_ELLIPSIS_3 = document.querySelector( '.render__loading__ellipsis3' )
+
+  LOADING_CONTAINER.addEventListener('animationend', () => {
+    LOADING_ELLIPSIS_1.classList.add( 'render__loading__ellipsis1__anim' )
+    LOADING_ELLIPSIS_2.classList.add( 'render__loading__ellipsis2__anim' )
+    LOADING_ELLIPSIS_3.classList.add( 'render__loading__ellipsis3__anim' )
+  })
+
+
 
 })

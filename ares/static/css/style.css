@@ -26,6 +26,11 @@ body {
   background-color: var(--white);
 }
 
+.no-select {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
 /* Render */
 
 .render {
@@ -35,34 +40,47 @@ body {
 }
 
 /* Loading Screen */
-
-.render__loading {
-  position: fixed;
+.render__loading__wrapper {
+  align-items: center;
   background-color: var(--white);
   color: var(--black);
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
   display: flex;
   font-family: 'IBM Plex Mono';
   font-size: 1.25rem;
-  align-items: center;
+  height: 100vh;
   justify-content: center;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
   z-index: 999;
 }
 
-.render__loading__ellipsis {
-  fill: var(--black);
+@keyframes renderLoadingContainer {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
-.render__loading__ellipsis1,
-.render__loading__ellipsis2,
-.render__loading__ellipsis3 {
+.render__loading__container {
+  align-items: center;
+  animation-duration: 600s;
+  animation-fill-mode: forwards;
+  animation-name: renderLoadingContainer;
+  animation-timing-function: ease-in-out;
+  display: flex;
+  justify-content: center;
+}
+
+.render__loading__ellipsis {
   animation-duration: 4s;
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
+  fill: var(--black);
   opacity: 0;
 }
 
@@ -76,7 +94,7 @@ body {
   75% {
     opacity: 1;
   }
-  80% {
+  85% {
     opacity: 0;
   }
   100% {
@@ -84,7 +102,7 @@ body {
   }
 }
 
-.render__loading__ellipsis1 {
+.render__loading__ellipsis1__anim {
   animation-name: renderLoadingEllipsis1;
   fill: var(--black);
 }
@@ -103,8 +121,10 @@ body {
     opacity: 1;
   }
   80% {
-    opacity: 0;
     transform: translateX(-.05rem);
+  }
+  85% {
+    opacity: 0;
   }
   100% {
     opacity: 0;
@@ -112,7 +132,7 @@ body {
   }
 }
 
-.render__loading__ellipsis2 {
+.render__loading__ellipsis2__anim {
   animation-name: renderLoadingEllipsis2;
   fill: var(--black);
 }
@@ -131,8 +151,10 @@ body {
     opacity: 1;
   }
   80% {
-    opacity: 0;
     transform: translateX(-.1rem);
+  }
+  85% {
+    opacity: 0;
   }
   100% {
     opacity: 0;
@@ -140,7 +162,7 @@ body {
   }
 }
 
-.render__loading__ellipsis3 {
+.render__loading__ellipsis3__anim {
   animation-name: renderLoadingEllipsis3;
   fill: var(--black);
 }
