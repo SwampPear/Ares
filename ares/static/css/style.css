@@ -1,5 +1,5 @@
 :root {
-  --cream: #fff9ed
+  --cream: #fef8f2;
 }
 
 /* latin-ext */
@@ -25,10 +25,23 @@ body {
   background-color: var(--cream);
 }
 
-.canvas {
-  font-family: 'IBM Plex Mono';
-  font-size: 2rem;
+.render {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.render__loading {
+  position: absolute;
+  background-color: var(--cream);
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  font-family: 'IBM Plex Mono';
+  font-size: 1.25rem;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
 }
